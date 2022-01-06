@@ -1,0 +1,158 @@
+{
+  "client_details":
+  {
+    "client_hostname" :"10.72.5.2",
+   "client_username" :"zuser",
+   "client_password" :"aw3s0me2020"
+  },
+  "ui_details":
+  {
+    "ui_url": "10.10.104.229",
+    "org_email1" :"admin@8909991.zscaler.net",
+    "org_password1" :"admin",
+    "org_email": "admin@third.com",
+    "org_password": "Admin@123",
+    "dppc" :10669,
+    "dppc2":10209,
+    "name" : "GRE",
+    "name2": "DPPC"
+  },
+    "sme_details":
+    {
+      "sme_mgm_hostname" :"10.10.104.120",
+      "sme_mgm_username":"root",
+      "sme_mgm_password":"aw3s0me2020",
+      "sme_ip":"10.10.104.67",
+      "sme_path":"/sc/sme-1830-67"
+    },
+   "server_details":
+   {
+     "server_hostname" :"10.10.104.117",
+     "server_username" :"root",
+      "server_password" :"Zrelacs#@!"
+   },
+
+
+  "QA_58991":
+  {
+    "proxy1":{"payload":{"id":1332549,"name":"squid","address":"10.66.88.103","port":9443}},
+    "proxy2":{"payload":{"id":1332550,"name":"me","address":"10.66.66.200","port":3128}},
+    "proxy3":{"payload":{"id":1332551,"name":"me1","address":"10.66.66.220","port":3129}},
+    "proxy4":{"payload":{"id":1332552,"name":"me3","address":"10.10.104.116","port":3128}},
+    "proxy5":{"payload":{"id":1332548,"name":"wer","address":"10.66.66.157","port":9443}},
+    "proxy6":{"payload":{"id":1332554,"name":"qas","address":"10.66.55.153","port":9443}},
+    "proxy7":{"payload":{"id":1332555,"name":"qas23","address":"10.66.55.152","port":9443}},
+    "proxy8":{"payload":{"id":1332547,"name":"DEMO2","address":"10.66.55.42","port":9443}},
+    "proxy9": {"payload": {"id":1332546,"name": "squid2", "address": "10.10.66.153", "port": 9443},
+               "validation": {"code": "LIMIT_EXCEEDED", "message": "Max of 8 proxies has been reached"}},
+    "gw1":{"payload":{"name":"gw1","primaryProxy":{"id":1332549,"name":"squid"},"secondaryProxy":{"id":1332552,"name":"me3"},"failClosed":true}},
+    "gw2":{"payload":{"name":"gw2","primaryProxy":{"id":1332549,"name":"squid"},"secondaryProxy":{"id":1332551,"name":"me1"},"failClosed":true}},
+    "gw3":{"payload":{"name":"gw3","primaryProxy":{"id":1332549,"name":"squid"},"secondaryProxy":{"id":1332550,"name":"me"},"failClosed":true}},
+    "gw4":{"payload":{"name":"gw4","primaryProxy":{"id":1332550,"name":"me"},"secondaryProxy":{"id":1332551,"name":"me1"},"failClosed":true}},
+    "gw5":{"payload":{"name":"gw5","primaryProxy":{"id":1332550,"name":"me"},"secondaryProxy":{"id":1332552,"name":"me3"},"failClosed":true}},
+    "gw6":{"payload":{"name":"gw6","primaryProxy":{"id":1332550,"name":"me"},"secondaryProxy":{"id":1332549,"name":"squid"},"failClosed":true}},
+    "gw7":{"payload":{"name":"gw7","primaryProxy":{"id":1332551,"name":"me1"},"secondaryProxy":{"id":1332552,"name":"me3"},"failClosed":true}},
+    "gw8":{"payload":{"name":"gw8","primaryProxy":{"id":1332550,"name":"me"},"secondaryProxy":{"id":1332549,"name":"squid"},"failClosed":true}},
+    "gw9":{"payload":{"name":"gw9","primaryProxy":{"id":1332552,"name":"me3"},"secondaryProxy":{"id":1332551,"name":"me1"},"failClosed":true},
+           "validation":{"code": "LIMIT_EXCEEDED", "message": "Max of 8 proxy gateways has been reached"}}
+  },
+
+  "QA_58925": {
+    "gw1":{"payload": {"name":"dfr","primaryProxy":{"id":1332550,"name":"me"},"secondaryProxy":{"id":1332550,"name":"me"},"failClosed":true,"sslInspectionDisabled":false},
+           "validation": {"code": "INVALID_INPUT_ARGUMENT", "message": "Secondary proxy cannot be the same as primary proxy"},
+           "ppayload":{"name":"me","address":"10.66.66.200","port":3128},
+           "request":"curl -Ivk https://www.amazon.com --interface 10.72.2.31"}
+},
+
+  "QA_58924": {
+    "gw1":{"payload": {"name":"gw2","primaryProxy":{"id":1332550,"name":"me"},"secondaryProxy":{"id":1332551,"name":"me1"},"failClosed":true,"sslInspectionDisabled":false},
+           "rule":{"accessControl":"READ_WRITE","name":"FWD_1","order":1,"rank":7,"forwardMethod":"PROXYCHAIN","state":"ENABLED","destIpCategories":[],"destCountries":[],"proxyGateway":{"id":1338416,"name":"gw2"}},
+           "request":"curl -Ivk -x 10.65.120.182:10207 https://www.facebook.com"}
+},
+
+
+  "QA_58903": {
+    "gw1":{"payload": {"id":1336459,"name":"gw3","primaryProxy":{"id":1332554,"name":"qas"},"secondaryProxy":{"id":1332555,"name":"qas23"},"failClosed":true,"sslInspectionDisabled":true} },
+    "gw2":{"payload": {"id":1336459,"name":"gw4","primaryProxy":{"id":1332554,"name":"qas"},"secondaryProxy":{"id":1332549,"name":"squid"},"failClosed":true,"sslInspectionDisabled":true}}
+},
+
+  "QA_59029": {"request2": "curl -Ivk https://www.badssl.com --interface 10.72.2.42",
+               "validation":{"locationName": "GRE","rdrRuleName": "FWD_939", "forwardType": "PROXYCHAIN", "gatewayName": "gw939","urlDomain": "www.badssl.com"}},
+
+  "QA_58929": {"rule": {"accessControl":"READ_WRITE", "name":"FWD_12", "order":1, "rank":7, "forwardMethod":"PROXYCHAIN", "state":"ENABLED", "destIpCategories":[], "destCountries":[], "proxyGateway":{"id":6789,"name":"gw4"}}},
+
+  "QA_58900": {"rule": {"accessControl":"READ_WRITE", "name":"FWD_58900", "order":1, "rank":7, "forwardMethod":"PROXYCHAIN", "state":"ENABLED", "destIpCategories":[], "destCountries":[], "proxyGateway":{"id":6789,"name":"gw4"}},
+               "rule2": {"accessControl":"READ_WRITE", "name":"FWD2_58900", "order":1, "rank":7, "forwardMethod":"PROXYCHAIN", "state":"ENABLED", "destIpCategories":[], "destCountries":[], "proxyGateway":{"id":6789,"name":"gw4"}}
+    },
+
+  "QA_58899": {"rule": {"accessControl":"READ_WRITE", "name":"FWD_14", "order":1, "rank":7, "forwardMethod":"PROXYCHAIN", "state":"ENABLED", "destIpCategories":[], "destCountries":[], "proxyGateway":{"id":6789,"name":"gw9"}}
+  },
+
+  "QA_58935": {"req":"curl -Ivk --interface 10.72.2.42 http://www.facebbok.com",
+               "validation": {"policyReason": "AT_REQ_MALWARE_DENIED","advancedThreat": "MALWARE_SITE","urlCategory": "MALWARE_SITE"},
+               "rule":{"accessControl":"READ_WRITE", "name":"FWD_58935", "order":1, "rank":7, "forwardMethod":"PROXYCHAIN", "state":"ENABLED", "destIpCategories":[], "destCountries":[], "proxyGateway":{"id":6789,"name":"gwtest"}}
+},
+
+  "QA_58936":{"request":"curl -Ivk --interface 10.72.2.42 http://www.youtube.com -A 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:60.0) Gecko/20100101 Firefox/73.0'",
+              "validation": {"policyReason": "AV_BROWSER_TYPE_BLOCK","userAgent": "FIREFOX_73_0","policyType": "ADV_THREAT_PROTECTION"},
+              "rule":{"accessControl":"READ_WRITE", "name":"FWD_58936", "order":1, "rank":7, "forwardMethod":"PROXYCHAIN", "state":"ENABLED", "destIpCategories":[], "destCountries":[], "proxyGateway":{"id":87678,"name":"gwtest"}}
+  },
+
+
+  "QA_58879":{"validation":{"code": "RESOURCE_IN_USE", "message": "Cert cannot be deleted since it is being used in  a proxy"}
+  },
+
+
+  "QA_58907":{"rule":{"accessControl":"READ_WRITE", "name":"FWD_907", "order":1, "rank":7, "forwardMethod":"PROXYCHAIN", "state":"ENABLED", "destIpCategories":[], "destCountries":[], "proxyGateway":{"id":788999,"name":"gwtest"}},
+              "cid": 8842762
+  },
+
+  "QA_59013": {"rule": {"accessControl":"READ_WRITE", "name":"FWD_59013", "order":1, "rank":7, "forwardMethod":"PROXYCHAIN", "state":"ENABLED", "destIpCategories":[], "destCountries":[], "proxyGateway":{"id":789,"name":"gwtest"}},
+               "request": "curl --interface 10.72.2.42 -Ivk https://10.10.104.117:3128"},
+
+  "QA_58901": {"rule": {"accessControl":"READ_WRITE", "name":"FWD_12", "order":1, "rank":7,"forwardMethod":"PROXYCHAIN", "state":"ENABLED", "destIpCategories":[], "destIpCategories":[], "destCountries":[], "proxyGateway":{"id":897,"name":"gw4"}}
+  },
+
+  "QA_59014":{"rdrRuleName": "FWD_59013", "forwardType": "PROXYCHAIN","gatewayName": "gwtest", "gatewayIp": "10.10.104.116", "clientIp": "10.72.2.42", "serverIp": "10.10.104.117","protocol": "HTTPS"},
+
+  "QA_58905":{"request":"curl --interface 10.72.2.42 -Ivk https://www.amazon.com",
+              "validation":{"rdrRuleName": "FWD_58905", "forwardType": "PROXYCHAIN", "gatewayName": "gwtest", "gatewayIp": "10.10.104.116"},
+              "rule":{"accessControl":"READ_WRITE", "name":"FWD_58905", "order":1, "rank":7, "forwardMethod":"PROXYCHAIN", "state":"ENABLED", "destIpCategories":[], "destCountries":[], "proxyGateway":{"id":7778889,"name":"gwtest"}}
+  },
+
+  "QA_58939":{"payload":{"accessControl":"READ_WRITE","id":309330,"name":"Firewall Rule","order":1,"rank":0,"action":"BLOCK_DROP","state":"ENABLED","destIpCategories":[],"destCountries":[],"nwServices":[],"predefined":false,"defaultRule":false,"enableFullLogging":false},
+              "validation":{"locationName": "GRE","rdrRuleName": "FWD_58939", "forwardType": "PROXYCHAIN", "gatewayName": "gwtest","gatewayIp": "10.10.104.116"},
+              "rule":{"accessControl":"READ_WRITE", "name":"FWD_58939", "order":1, "rank":7, "forwardMethod":"PROXYCHAIN", "state":"ENABLED", "destIpCategories":[], "destCountries":[], "proxyGateway":{"id":5678,"name":"gwtest"}},
+              "request2": "curl -Ivk https://www.livmint.com --interface 10.72.2.42"
+},
+
+  "QA_58938":{"request":"curl -Ivk --interface 10.72.2.42 -T file.pdf http://10.65.1.220/upload.php",
+              "validation":{"policyReason": "FILETYPE_DENIED","fileTypeCategory": "PDF_DOCUMENT", "forwardType": "PROXYCHAIN"},
+              "rule":{"accessControl":"READ_WRITE", "name":"FWD_58938", "order":1, "rank":7, "forwardMethod":"PROXYCHAIN", "state":"ENABLED", "destIpCategories":[], "destCountries":[], "proxyGateway":{"id":555,"name":"gwtest"}},
+              "request2": "curl --interface 10.72.2.42 -Ivk https://www.amazon.com"
+  },
+
+  "QA_58906":{"rdrRuleName": "FWD_10", "forwardType": "PROXYCHAIN", "gatewayIp": "10.10.104.67","urlDomain": "www.facebook.com"},
+
+  "QA_58940":{"payload":{"accessControl":"READ_WRITE","name":"Url Rule","order":1,"protocols":["ANY_RULE"],"urlCategories":["SOCIAL_NETWORKING"],"state":"ENABLED","rank":7,"requestMethods":["OPTIONS","GET","HEAD","POST","PUT","DELETE","TRACE","CONNECT","OTHER"],"blockOverride":false,"action":"BLOCK"},
+              "validation":{"policyType": "URL_FILTERING","policyReason": "CATEGORY_DENIED"},
+              "rule":{"accessControl":"READ_WRITE", "name":"FWD_58940", "order":1, "rank":7, "forwardMethod":"PROXYCHAIN", "state":"ENABLED", "destIpCategories":[], "destCountries":[], "proxyGateway":{"id":7896,"name":"gwtest"}},
+              "request2": "curl --interface 10.72.2.42 -Ivk https://www.777.com"
+  },
+
+  "QA_59024":{"validation":{"rdrRuleName": "FWD_214", "forwardType": "PROXYCHAIN", "gatewayName": "gw214", "gatewayIp": "10.10.104.116", "locationName": "GRE", "urlDomain": "http.badssl.com", "protocol": "HTTP"},
+              "rule": {"accessControl":"READ_WRITE", "name":"FWD_214", "order":1, "rank":7, "forwardMethod":"PROXYCHAIN", "state":"ENABLED", "destIpCategories":[], "destCountries":[], "proxyGateway":{"id":98762,"name":"gw214"}}
+},
+
+  "QA_58953":{"validation":{"rdrRuleName": "FWD_58953", "forwardType": "PROXYCHAIN", "gatewayName": "gwtest","protocol": "HTTPS","urlDomain": "www.facebook.com"},
+              "rule":{"accessControl":"READ_WRITE", "name":"FWD_58953", "order":1, "rank":7, "forwardMethod":"PROXYCHAIN", "state":"ENABLED", "destIpCategories":[], "destCountries":[], "proxyGateway":{"id":7896,"name":"gwtest"}},
+              "request": "curl --interface 10.72.2.42 -Ivk https://www.facebook.com"
+  },
+  "QA_59003":{"validation": {"locationName": "GRE","clientIp": "10.72.2.42", "serverIp": "10.65.1.220"}
+  },
+
+  "QA_58941":{"request":"curl -Ivk --interface 10.72.2.42 -T dlp_check.txt http://10.65.1.220/upload.php",
+              "validation":{"locationName": "GRE", "clientProxyIp": "10.72.2.30", "policyReason": "DLP_DENIED","dlpEngine": "dlp_ssn", "dlpDictionaries": ["SSN"],"rdrRuleName": "FWD_941", "forwardType": "PROXYCHAIN", "gatewayName": "gw10"},
+              "rule":{"accessControl":"READ_WRITE", "name":"FWD_58941", "order":1, "rank":7, "forwardMethod":"PROXYCHAIN", "state":"ENABLED", "destIpCategories":[], "destCountries":[], "proxyGateway":{"id":32555555,"name":"gwtest"}},
+              "request2": "curl -o 1mb.dns http://10.65.1.220/FTC/1mb.dns --interface 10.72.2.42"}
+}
